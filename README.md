@@ -1,325 +1,78 @@
-# Auspify Technologies — Data Science Internship
+# 📊 Netflix Data Science Projects
 
-## Netflix Data Analysis, Machine Learning & Business Insights Dashboard
+### Auspify Technologies — Data Science Internship
 
-A collection of six practical Data Science projects developed using Python and the Netflix dataset as part of the **Auspify Technologies Data Science Internship Program**.
+A practical collection of six Python-based Data Science projects completed as part of the **4-Week Data Science Internship Program at Auspify Technologies**.
 
-The project covers data cleaning, exploratory data analysis, content-based recommendation, trend prediction, machine learning classification, and an interactive business insights dashboard.
+This repository explores the complete Data Science workflow using a Netflix titles dataset, from data cleaning and exploratory analysis to recommendation systems, forecasting, machine learning classification, and an interactive Streamlit dashboard.
 
-The objective is to apply data science concepts to a real-world dataset, generate meaningful insights, and build practical project experience.
-
----
-
-## About Auspify Technologies
-
-Auspify Technologies is a technology and training platform focused on helping students develop industry-relevant skills through practical learning, hands-on tasks, and project-based experience.
-
-**Internship Program:** Data Science Internship  
-**Program Duration:** 4 Weeks  
-**Learning Approach:** Practical Projects and Hands-On Learning
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-Data%20Science-blue?logo=python" alt="Python Data Science">
+  <img src="https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas" alt="Pandas">
+  <img src="https://img.shields.io/badge/Scikit--learn-Machine%20Learning-F7931E?logo=scikitlearn" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/Streamlit-Interactive%20Dashboard-FF4B4B?logo=streamlit" alt="Streamlit">
+</p>
 
 ---
 
-## Project Objectives
+## 📑 Table of Contents
 
-- Clean and preprocess the Netflix dataset.
-- Explore content distribution and identify meaningful patterns.
-- Develop a content-based recommendation system.
-- Analyze historical release-year trends and generate baseline forecasts.
-- Build and evaluate a machine learning classification model.
-- Develop an interactive dashboard for data exploration and business insights.
-- Practice data visualization, model evaluation, and professional project organization.
-
----
-
-## Technologies Used
-
-| Technology / Library | Purpose |
-|---|---|
-| Python | Main programming language |
-| Pandas | Data manipulation and analysis |
-| NumPy | Numerical operations, where required |
-| Matplotlib | Data visualization |
-| Seaborn | Statistical visualization, where used |
-| Scikit-learn | Machine learning, TF-IDF, similarity calculations, and model evaluation |
-| Streamlit | Interactive dashboard development |
-| Plotly | Interactive charts and visualizations |
+- [Project Overview](#-project-overview)
+- [Project Highlights](#-project-highlights)
+- [Project Structure](#-project-structure)
+- [Internship Tasks](#-internship-tasks)
+- [Dashboard Preview](#-dashboard-preview)
+- [Technologies Used](#-technologies-used)
+- [Installation and Setup](#-installation-and-setup)
+- [Running the Projects](#-running-the-projects)
+- [Screenshots](#-screenshots)
+- [Learning Outcomes](#-learning-outcomes)
+- [Limitations and Considerations](#-limitations-and-considerations)
+- [About the Internship](#-about-the-internship)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-# Internship Tasks
+## 🎯 Project Overview
 
-## Task 1 — Data Cleaning & Preprocessing
+The objective of this project is to apply practical Data Science techniques to a Netflix titles dataset.
 
-**Difficulty:** Easy  
-**Python File:** `task1_data_cleaning.py`
+Each task focuses on a different stage of the Data Science workflow, including data preprocessing, statistical exploration, content similarity, trend forecasting, classification, and analytical visualization.
 
-### Description
+The projects are implemented as standalone Python scripts, allowing each task to be executed and explored independently.
 
-This task prepares the Netflix dataset for further analysis by inspecting its structure, checking data quality, transforming columns, and saving the processed dataset.
+### Key Objectives
 
-### Objectives
-
-- Load the dataset using Pandas.
-- Inspect column names, data types, and dataset structure.
-- Check for missing values and duplicate records.
-- Handle data inconsistencies where required.
-- Convert date-related information into an appropriate format.
-- Save the cleaned dataset for subsequent tasks.
-
-### Libraries Used
-
-- **Pandas:** Loading, inspecting, cleaning, and transforming the dataset.
-- **NumPy:** Numerical operations, if used in the implementation.
-
-### Output
-
-- `outputs/netflix_cleaned.csv`
-
-### Run Command
-
-```bash
-python task1_data_cleaning.py
-```
+- Prepare raw data for reliable analysis.
+- Discover patterns and trends through exploratory data analysis.
+- Recommend similar titles using content features.
+- Analyze historical trends and explore future forecasts.
+- Train and evaluate machine learning classification models.
+- Present analytical information through an interactive dashboard.
 
 ---
 
-## Task 2 — Exploratory Data Analysis (EDA)
+## ✨ Project Highlights
 
-**Difficulty:** Easy  
-**Python File:** `task2_eda.py`
-
-### Description
-
-This task explores the Netflix dataset to understand content distribution, country representation, categories, and release-year patterns.
-
-### Objectives
-
-- Examine dataset structure and summary statistics.
-- Compare the distribution of Movies and TV Shows.
-- Analyze the countries represented in the dataset.
-- Explore content categories.
-- Study release-year trends.
-- Generate visualizations to communicate findings.
-
-### Libraries Used
-
-- **Pandas:** Data analysis and aggregation.
-- **Matplotlib:** Creating charts and visualizations.
-- **Seaborn:** Statistical visualization, if used in the implementation.
-
-### Outputs
-
-- `outputs/content_distribution.png`
-- `outputs/top_10_categories.png`
-- `outputs/top_10_countries.png`
-- `outputs/release_year_trend.png`
-
-### Run Command
-
-```bash
-python task2_eda.py
-```
+- **Data Preparation:** Identify missing values, duplicate records, and data quality issues.
+- **Exploratory Analysis:** Explore Netflix content distribution, countries, ratings, and release-year patterns.
+- **Recommendation System:** Use text features and similarity calculations to identify related titles.
+- **Trend Forecasting:** Analyze historical trends and generate regression-based forecasts.
+- **Classification:** Train and evaluate classification models using selected dataset features.
+- **Interactive Dashboard:** Present key metrics and visualizations using Streamlit.
 
 ---
 
-## Task 3 — Content-Based Recommendation System
-
-**Difficulty:** Medium  
-**Python File:** `task3_recommendation.py`
-
-### Description
-
-This task implements a basic content-based recommendation system that identifies Netflix titles with similar content features.
-
-### Objectives
-
-- Extract relevant information from Netflix titles.
-- Combine available features such as title, type, director, and categories.
-- Convert text features into numerical representations using TF-IDF.
-- Calculate content similarity using cosine similarity.
-- Generate recommendations for a selected title.
-
-### Libraries Used
-
-- **Pandas:** Loading data and organizing recommendation results.
-- **Scikit-learn:** TF-IDF vectorization and cosine similarity calculations.
-
-### Output
-
-- `outputs/netflix_recommendations.csv`
-
-### Run Command
-
-```bash
-python task3_recommendation.py
-```
-
-### Note
-
-Recommendations are generated from similarities between available content features. A high similarity score does not necessarily indicate user preference or satisfaction.
-
----
-
-## Task 4 — Trend Prediction Analysis
-
-**Difficulty:** Medium  
-**Python File:** `task4_trend_prediction.py`
-
-### Description
-
-This task analyzes the historical release years of Netflix titles and uses a basic forecasting model to estimate trends.
-
-### Objectives
-
-- Prepare and analyze release-year data.
-- Visualize historical content trends.
-- Train a baseline forecasting model.
-- Generate estimates for future years.
-- Evaluate model predictions using Mean Absolute Error (MAE).
-- Visualize historical trends and forecast results.
-
-### Libraries Used
-
-- **Pandas:** Data preparation and tabular analysis.
-- **Matplotlib:** Visualizing historical trends and predictions.
-- **Scikit-learn:** Building and evaluating the Linear Regression model.
-
-### Outputs
-
-- `outputs/task4_release_year_analysis.png`
-- `outputs/netflix_future_trend_predictions.csv`
-- `outputs/task4_future_trend.png`
-
-### Run Command
-
-```bash
-python task4_trend_prediction.py
-```
-
-### Note
-
-The forecasts are baseline model estimates based on historical release-year data. They should not be interpreted as actual future Netflix releases or Netflix's future content acquisition plans.
-
----
-
-## Task 5 — Machine Learning Classification Model
-
-**Difficulty:** Advanced  
-**Python File:** `task5_classification.py`
-
-### Description
-
-This task applies machine learning classification to predict the content type of a Netflix title using selected dataset features.
-
-The model is designed to classify titles into categories such as **Movie** and **TV Show**.
-
-### Objectives
-
-- Select relevant dataset features.
-- Prepare categorical and numerical features.
-- Split data into training and testing sets.
-- Train a classification model.
-- Generate predictions for the test data.
-- Evaluate model performance.
-- Save evaluation results and predictions.
-
-### Libraries Used
-
-- **Pandas:** Data preparation and handling predictions.
-- **Scikit-learn:** Feature preprocessing, model training, data splitting, and performance evaluation.
-- **Matplotlib:** Confusion matrix visualization, if used in the implementation.
-
-### Outputs
-
-- `outputs/task5_classification_report.txt`
-- `outputs/task5_confusion_matrix.png`
-- `outputs/task5_classification_predictions.csv`
-
-### Run Command
-
-```bash
-python task5_classification.py
-```
-
-### Note
-
-Classification results depend on the selected features, preprocessing, data split, and evaluation method. Reported performance should be interpreted in the context of the dataset and the features used.
-
----
-
-## Task 6 — Data Science Business Insights Dashboard
-
-**Difficulty:** Advanced  
-**Python File:** `task6_dashboard.py`
-
-### Description
-
-This task brings data analysis and visualization together in an interactive dashboard built with Streamlit and Plotly.
-
-The dashboard provides an accessible way to explore Netflix content and review data-driven insights.
-
-### Objectives
-
-- Load the cleaned Netflix dataset.
-- Display key dataset metrics.
-- Explore content using interactive filters.
-- Visualize important data patterns.
-- Present business-oriented insights.
-- Preview and download dataset information.
-
-### Libraries Used
-
-- **Pandas:** Data processing, filtering, and aggregation.
-- **Streamlit:** Dashboard interface and interactive controls.
-- **Plotly:** Interactive charts and visualizations.
-
-### Dashboard Features
-
-- Netflix-inspired dashboard design.
-- Key performance indicator (KPI) cards.
-- Interactive sidebar filters.
-- Content distribution visualizations.
-- Country and category analysis.
-- Release-year trend analysis.
-- Business insights section.
-- Dataset preview and download functionality.
-- Developer credit and project footer.
-
-### Run Command
-
-```bash
-python -m streamlit run task6_dashboard.py
-```
-
-After running the command, Streamlit will provide a local URL in the terminal. Open that URL in your browser to use the dashboard.
-
-### Screenshots
-
-Dashboard screenshots are stored in the `screenshots/` directory.
-
-Suggested screenshots:
-
-- `screenshots/task6_dashboard_overview.png`
-- `screenshots/task6_charts.png`
-- `screenshots/task6_business_insights.png`
-- `screenshots/task6_footer.png`
-
-Screenshots can be added to this README using Markdown:
-
-```markdown
-![Dashboard Overview](screenshots/task6_dashboard_overview.png)
-```
-
----
-
-# Project Structure
+## 📂 Project Structure
 
 ```text
-Auspify_Data_Science_Internship/
+Auspify-Data-Science-Internship/
 │
 ├── Dataset.csv
 ├── README.md
+├── README_backup.md
+├── LICENSE
 │
 ├── task1_data_cleaning.py
 ├── task2_eda.py
@@ -327,140 +80,353 @@ Auspify_Data_Science_Internship/
 ├── task4_trend_prediction.py
 ├── task5_classification.py
 ├── task6_dashboard.py
+├── task6_dashboard_backup.py
 │
 ├── outputs/
-│   ├── netflix_cleaned.csv
-│   ├── netflix_recommendations.csv
-│   ├── netflix_future_trend_predictions.csv
-│   ├── content_distribution.png
-│   ├── top_10_categories.png
-│   ├── top_10_countries.png
-│   ├── release_year_trend.png
-│   ├── task4_release_year_analysis.png
-│   ├── task4_future_trend.png
-│   ├── task5_classification_report.txt
-│   ├── task5_confusion_matrix.png
-│   └── task5_classification_predictions.csv
 │
 └── screenshots/
-    ├── task6_dashboard_overview.png
-    ├── task6_charts.png
-    ├── task6_business_insights.png
-    └── task6_footer.png
+    ├── Task1_Data_Cleaning/
+    ├── Task2_EDA/
+    ├── Task3_Recommendation/
+    ├── Task4_Trend_Prediction/
+    ├── Task5_Classification/
+    └── Task6_Dashboard/
 ```
 
-**Note:** The structure above shows the main project files and expected outputs. Actual generated files may vary depending on which scripts have been run.
+**Note:** This structure represents the current project organization. The contents of the `outputs/` directory may vary depending on the generated files.
 
 ---
 
-# Installation & Setup
+## 🧩 Internship Tasks
 
-## 1. Prerequisites
+### Task 1 — Data Cleaning and Preprocessing
 
-Make sure the following are installed:
+**Difficulty:** Easy
 
-- Python
-- PyCharm or another Python IDE
-- Required Python libraries
+Prepare the Netflix dataset for analysis by examining data quality and transforming relevant columns.
 
-## 2. Open the Project
+**Key Activities**
+- Inspect dataset structure and data types.
+- Identify missing values and duplicate records.
+- Handle missing data.
+- Convert relevant columns into usable formats.
+- Prepare data for subsequent analysis.
 
-Open the `Auspify_Data_Science_Internship` project folder in PyCharm.
+**Technologies:** Python, Pandas, NumPy
 
-Make sure `Dataset.csv` is present in the project root directory.
+**Screenshots:** [`screenshots/Task1_Data_Cleaning/`](screenshots/Task1_Data_Cleaning/)
 
-## 3. Install Required Libraries
+---
 
-Open the PyCharm terminal and run:
+### Task 2 — Exploratory Data Analysis (EDA)
+
+**Difficulty:** Easy
+
+Explore the Netflix catalogue to understand its composition and identify meaningful patterns.
+
+**Key Activities**
+- Examine dataset statistics.
+- Compare movies and TV shows.
+- Explore country and rating distributions.
+- Analyze release-year patterns and content categories.
+- Visualize important findings.
+
+**Technologies:** Pandas, Matplotlib, Seaborn
+
+**Screenshots:** [`screenshots/Task2_EDA/`](screenshots/Task2_EDA/)
+
+---
+
+### Task 3 — Content-Based Recommendation System
+
+**Difficulty:** Medium
+
+Develop a recommendation approach that identifies similar Netflix titles using available textual features.
+
+**Key Activities**
+- Prepare relevant text features.
+- Convert textual information into numerical representations.
+- Calculate content similarity.
+- Rank similar titles.
+- Inspect sample recommendations.
+
+**Technologies:** Python, Scikit-learn, TF-IDF, Cosine Similarity
+
+**Screenshots:** [`screenshots/Task3_Recommendation/`](screenshots/Task3_Recommendation/)
+
+---
+
+### Task 4 — Trend Prediction Analysis
+
+**Difficulty:** Medium
+
+Analyze historical release-year patterns and explore a simple forecasting approach.
+
+**Key Activities**
+- Prepare release-year data.
+- Analyze historical content trends.
+- Fit a regression-based forecasting model.
+- Calculate prediction errors using an evaluation metric.
+- Visualize historical values and forecasts.
+
+**Technologies:** Pandas, NumPy, Matplotlib, Scikit-learn
+
+**Important:** Regression-based forecasts are exploratory estimates. They should not be interpreted as guaranteed predictions of future Netflix releases.
+
+**Screenshots:** [`screenshots/Task4_Trend_Prediction/`](screenshots/Task4_Trend_Prediction/)
+
+---
+
+### Task 5 — Machine Learning Classification
+
+**Difficulty:** Advanced
+
+Build and compare classification models using selected features from the dataset.
+
+**Key Activities**
+- Prepare model features.
+- Handle missing and categorical values where required.
+- Split the data into training and testing sets.
+- Train classification models.
+- Evaluate and compare model performance.
+
+**Technologies:** Python, Pandas, Scikit-learn
+
+**Evaluation Considerations**
+
+Classification results depend on the selected target variable, feature selection, preprocessing, and validation strategy. High scores should be examined for potential data leakage and overfitting.
+
+**Screenshots:** [`screenshots/Task5_Classification/`](screenshots/Task5_Classification/)
+
+---
+
+### Task 6 — Data Science Business Insights Dashboard
+
+**Difficulty:** Advanced
+
+Create an interactive dashboard that presents Netflix dataset metrics, trends, and visual insights.
+
+**Key Activities**
+- Present key analytical metrics.
+- Explore content distributions.
+- Visualize geographical and rating patterns.
+- Display relevant business insights.
+- Organize visualizations in an interactive interface.
+
+**Technologies:** Python, Streamlit, Pandas, Plotly
+
+**Screenshots:** [`screenshots/Task6_Dashboard/`](screenshots/Task6_Dashboard/)
+
+---
+
+## 📊 Dashboard Preview
+
+The dashboard brings together analytical visualizations and insights from the Netflix dataset.
+
+### Dashboard Overview
+
+![Netflix Dashboard Overview](screenshots/Task6_Dashboard/Dashboard%20Overview.png)
+
+### Business Insights
+
+![Netflix Business Insights](screenshots/Task6_Dashboard/Business%20Insights.png)
+
+*If an image does not render, check its filename and path in the repository.*
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical operations |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
+| Scikit-learn | Machine learning, text vectorization, and similarity calculations |
+| Streamlit | Interactive dashboard development |
+| Plotly | Interactive charts |
+
+---
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+- Python 3.10 or a compatible version
+- Git
+- pip
+
+### 1. Clone the Repository
 
 ```bash
-python -m pip install pandas numpy matplotlib seaborn scikit-learn streamlit plotly
+git clone https://github.com/riyajull/Auspify-Data-Science-Internship.git
 ```
 
-This installs the libraries used across the project's tasks. You do not need to install the same library separately for every task if it is already installed in your active Python environment.
+### 2. Navigate to the Project Directory
 
-## 4. Run Individual Tasks
+```bash
+cd Auspify-Data-Science-Internship
+```
 
-Run the scripts from the project root directory:
+### 3. Create a Virtual Environment
+
+**Windows — PowerShell**
+
+```powershell
+python -m venv venv
+```
+
+### 4. Activate the Virtual Environment
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks script execution, you can activate the environment using Command Prompt:
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+### 5. Install Dependencies
+
+After creating the project's `requirements.txt` file, install the dependencies with:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+If a script reports a missing package, verify its imports and update the dependency list accordingly.
+
+---
+
+## ▶️ Running the Projects
+
+Run the commands from the project root directory.
+
+Ensure that `Dataset.csv` is available at the location expected by the relevant script.
+
+### Task 1 — Data Cleaning
 
 ```bash
 python task1_data_cleaning.py
+```
+
+### Task 2 — Exploratory Data Analysis
+
+```bash
 python task2_eda.py
+```
+
+### Task 3 — Recommendation System
+
+```bash
 python task3_recommendation.py
+```
+
+### Task 4 — Trend Prediction
+
+```bash
 python task4_trend_prediction.py
+```
+
+### Task 5 — Classification Model
+
+```bash
 python task5_classification.py
 ```
 
-Task 6 is an interactive Streamlit dashboard. Start it separately:
+### Task 6 — Interactive Dashboard
+
+Launch the dashboard with Streamlit:
 
 ```bash
-python -m streamlit run task6_dashboard.py
+streamlit run task6_dashboard.py
 ```
 
-## 5. Check Generated Outputs
+The dashboard is generally available at:
 
-Generated datasets, reports, and charts are saved in the `outputs/` directory, according to the output paths configured in each script.
+```text
+http://localhost:8501
+```
 
----
-
-# Learning Outcomes
-
-Through these projects, I gained practical experience in:
-
-- Data cleaning and preprocessing.
-- Handling structured datasets with Pandas.
-- Exploratory Data Analysis (EDA).
-- Data visualization and interpretation.
-- Text preprocessing and TF-IDF vectorization.
-- Content-based recommendation systems.
-- Cosine similarity.
-- Basic trend forecasting using Linear Regression.
-- Machine learning classification.
-- Model evaluation and confusion matrices.
-- Building interactive dashboards with Streamlit.
-- Creating interactive visualizations with Plotly.
-- Organizing project files and presenting data science results.
+**Important:** Run the dashboard using `streamlit run task6_dashboard.py`, not `python task6_dashboard.py`.
 
 ---
 
-# Internship Details
+## 📸 Screenshots
 
-- **Organization:** Auspify Technologies
-- **Program:** Data Science Internship
-- **Project:** Netflix Data Analysis, Machine Learning & Business Insights Dashboard
-- **Dataset:** Netflix titles dataset
-- **Completed Tasks:** Tasks 1–6
+Screenshots for each task are organized into dedicated folders.
 
----
+| Task | Screenshot Folder |
+|---|---|
+| Task 1 — Data Cleaning | [`Task1_Data_Cleaning`](screenshots/Task1_Data_Cleaning/) |
+| Task 2 — EDA | [`Task2_EDA`](screenshots/Task2_EDA/) |
+| Task 3 — Recommendation | [`Task3_Recommendation`](screenshots/Task3_Recommendation/) |
+| Task 4 — Trend Prediction | [`Task4_Trend_Prediction`](screenshots/Task4_Trend_Prediction/) |
+| Task 5 — Classification | [`Task5_Classification`](screenshots/Task5_Classification/) |
+| Task 6 — Dashboard | [`Task6_Dashboard`](screenshots/Task6_Dashboard/) |
 
-# Developer Information
-
-**Developed by:** Riyajul Karim Laskar  
-**Project:** Netflix Data Analysis and Machine Learning  
-**Internship Organization:** Auspify Technologies
-
-This project was developed as part of a practical Data Science Internship program.
+These screenshots document selected outputs and visualizations from the implementation.
 
 ---
 
-# Conclusion
+## 📚 Learning Outcomes
 
-This project demonstrates the application of data science techniques to a Netflix dataset through six practical tasks.
+This internship project provides practical experience with:
 
-The work covers data preprocessing, exploratory analysis, content-based recommendations, baseline trend forecasting, machine learning classification, and interactive business insights visualization.
-
-The project provides hands-on experience in working with data, building analytical workflows, evaluating model results, and communicating findings through visualizations and an interactive dashboard.
-
----
-
-# Disclaimer
-
-This project is intended for educational and learning purposes as part of the Auspify Technologies Data Science Internship Program.
-
-The recommendation system relies on similarities between available content features. Forecasts are baseline estimates and do not represent actual future Netflix releases. Classification results depend on the dataset, selected features, and evaluation methodology.
-
-This project is an independent educational analysis and is not an official Netflix product or an official Netflix business report.
+- Data cleaning and preprocessing using Pandas.
+- Exploratory data analysis and visualization.
+- Text vectorization and content similarity.
+- Regression-based trend forecasting.
+- Classification model training and evaluation.
+- Interactive dashboard development.
+- Python project organization and documentation.
+- Version control using Git and GitHub.
 
 ---
 
-**#Auspify #AuspifyTechnologies #AuspifyInternship #AuspifyProjects**
+## ⚠️ Limitations and Considerations
+
+- Results depend on the quality and coverage of the available dataset.
+- Recommendations depend on the text features and similarity method used.
+- Forecasts are exploratory estimates and may not represent future content growth accurately.
+- Classification performance must be interpreted alongside the target definition, feature selection, and validation approach.
+- Dashboard insights describe the available dataset and should not automatically be treated as current Netflix business statistics.
+
+---
+
+## 🎓 About the Internship
+
+**Organization:** Auspify Technologies  
+**Program:** Data Science Internship  
+**Duration:** 4 Weeks  
+**Format:** Remote
+
+The internship focuses on practical learning, project-based experience, and portfolio development.
+
+---
+
+## 👨‍💻 Author
+
+**GitHub:** [riyajull](https://github.com/riyajull)
+
+**Project Repository:** [Auspify Data Science Internship](https://github.com/riyajull/Auspify-Data-Science-Internship)
+
+---
+
+## 📄 License
+
+See the [`LICENSE`](LICENSE) file for licensing information.
+
+---
+
+## 🔖 Topics
+
+`Python` · `Data Science` · `Pandas` · `Machine Learning` · `EDA` · `Netflix Dataset` · `Recommendation Systems` · `Forecasting` · `Streamlit` · `Data Visualization`
+
+---
+
+**Learn • Build • Grow**
