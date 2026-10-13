@@ -155,12 +155,29 @@ st.markdown(
         .insight b {{ color: {NETFLIX_RED}; }}
 
         /* Sidebar */
-        section[data-testid="stSidebar"] {{
-            background: #0F0F14;
-            border-right: 1px solid {BORDER};
-        }}
-        section[data-testid="stSidebar"] .block-container {{ padding-top: 1.5rem; }}
-        .sidebar-brand {{
+        /* Improved sidebar readability */
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] {{
+    color: {TEXT} !important;
+    font-weight: 600;
+}}
+
+section[data-testid="stSidebar"] .sidebar-sub {{
+    color: #B8B8C5;
+}}
+
+section[data-testid="stSidebar"] .sidebar-stat {{
+    color: #C5C5D0;
+    line-height: 1.7;
+}}
+
+section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {{
+    color: #B8B8C5;
+}}
+
+section[data-testid="stSidebar"] input {{
+    accent-color: {NETFLIX_RED};
+}}
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -270,9 +287,9 @@ def style_figure(fig, height: int = 420):
         template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Inter, Segoe UI, sans-serif", color=TEXT, size=13),
+        font=dict(family="Inter, Segoe UI, sans-serif", color=TEXT, size=14),
         title=dict(font=dict(size=17, color=TEXT), x=0.02, xanchor="left"),
-        margin=dict(l=20, r=20, t=60, b=20),
+        margin=dict(l=30, r=25, t=70, b=35),
         height=height,
         hoverlabel=dict(bgcolor=SURFACE_ALT, font_color=TEXT, bordercolor=NETFLIX_RED),
         legend=dict(font=dict(color=MUTED)),
@@ -292,9 +309,19 @@ def show_chart(fig) -> None:
 
 def show_dataframe(data: pd.DataFrame) -> None:
     try:
-        st.dataframe(data, width="stretch")
+        st.dataframe(
+            data,
+            width="stretch",
+            height=400,
+            hide_index=True,
+        )
     except TypeError:
-        st.dataframe(data, use_container_width=True)
+        st.dataframe(
+            data,
+            use_container_width=True,
+            height=400,
+            hide_index=True,
+        )
 
 
 def explode_multivalue(series: pd.Series) -> pd.Series:
