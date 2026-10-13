@@ -181,20 +181,48 @@ Analyze historical release-year patterns and explore a simple forecasting approa
 
 **Difficulty:** Advanced
 
-Build and compare classification models using selected features from the dataset.
+Build a machine learning classification model to predict whether a Netflix title is a Movie or TV Show using selected dataset features.
 
 **Key Activities**
-- Prepare model features.
-- Handle missing and categorical values where required.
-- Split the data into training and testing sets.
-- Train classification models.
-- Evaluate and compare model performance.
 
-**Technologies:** Python, Pandas, Scikit-learn
+- Prepare model features and target labels.
+- Handle missing and categorical values through preprocessing pipelines.
+- Split the dataset into training and testing sets.
+- Train a Logistic Regression classifier.
+- Evaluate model performance using accuracy, classification reports, and a confusion matrix.
+- Perform 5-fold stratified cross-validation.
+- Compare results with an additional experiment that excludes the `listed_in` feature.
+
+**Technologies:** Python, Pandas, Scikit-learn, Matplotlib
+
+**Model Configuration**
+
+- **Target:** `type` (Movie or TV Show)
+- **Original features:** `listed_in`, `release_year`, `rating`, `duration`, `country`
+- **Algorithm:** Logistic Regression
+- **Train-test split:** 80% training, 20% testing
+- **Dataset size:** 8,790 rows
+
+**Results**
+
+| Evaluation | Accuracy |
+|---|---:|
+| Original model — test set | 99.94% |
+| Original model — 5-fold cross-validation mean | 100.00% |
+| Model without `listed_in` — test set | 99.89% |
+| Model without `listed_in` — 5-fold cross-validation mean | 99.82% |
+
+The original model achieved 99.94% accuracy on the held-out test set. An additional experiment without `listed_in` achieved 99.89% test accuracy, indicating that the remaining features are also highly informative for distinguishing Movies from TV Shows.
+
+**Generated Outputs**
+
+- [Classification Report](outputs/task5_classification_report.txt)
+- [Confusion Matrix](outputs/task5_confusion_matrix.png)
+- [Classification Predictions](outputs/task5_classification_predictions.csv)
 
 **Evaluation Considerations**
 
-Classification results depend on the selected target variable, feature selection, preprocessing, and validation strategy. High scores should be examined for potential data leakage and overfitting.
+The reported metrics were obtained using splits of the same dataset. The cross-validation results are based on the training set and do not constitute independent external validation. The very high scores should be interpreted in the context of the dataset's feature patterns; performance on unseen external data has not been established.
 
 **Screenshots:** [`screenshots/Task5_Classification/`](screenshots/Task5_Classification/)
 

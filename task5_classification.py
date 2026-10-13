@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -67,7 +67,7 @@ X = df[features].copy()
 y = df["type"].copy()
 
 # Convert text/categorical values to consistent format
-for col in X.select_dtypes(include=["object", "str"]).columns:
+for col in X.select_dtypes(include=["object"]).columns:
     X[col] = X[col].fillna("Unknown").astype(str).str.strip()
     X[col] = X[col].replace("", "Unknown")
 
@@ -177,6 +177,31 @@ print("\nTraining the classification model...")
 
 model.fit(X_train, y_train)
 
+# --------------------------------------------------
+# Additional Evaluation: 5-Fold Cross-Validation
+# --------------------------------------------------
+
+cv = StratifiedKFold(
+    n_splits=5,
+    shuffle=True,
+    random_state=42
+)
+
+print("\nRunning 5-fold cross-validation...")
+
+cv_scores = cross_val_score(
+    model,
+    X_train,
+    y_train,
+    cv=cv,
+    scoring="accuracy",
+    n_jobs=-1
+)
+
+print("Cross-validation scores:", cv_scores)
+print(f"Mean CV accuracy: {cv_scores.mean() * 100:.2f}%")
+print(f"CV standard deviation: {cv_scores.std() * 100:.2f}%")
+
 print("Model training completed successfully!")
 
 # --------------------------------------------------
@@ -283,7 +308,7 @@ verification_features = [
 X_verify = df[verification_features].copy()
 y_verify = df["type"].copy()
 
-for col in X_verify.select_dtypes(include=["object", "str"]).columns:
+for col in X_verify.select_dtypes(include=["object"]).columns:
     X_verify[col] = (
         X_verify[col]
         .fillna("Unknown")
