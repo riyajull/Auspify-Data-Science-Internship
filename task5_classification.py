@@ -67,7 +67,7 @@ X = df[features].copy()
 y = df["type"].copy()
 
 # Convert text/categorical values to consistent format
-for col in X.select_dtypes(include=["object"]).columns:
+for col in X.select_dtypes(include=["object", "str"]).columns:
     X[col] = X[col].fillna("Unknown").astype(str).str.strip()
     X[col] = X[col].replace("", "Unknown")
 
@@ -283,7 +283,7 @@ verification_features = [
 X_verify = df[verification_features].copy()
 y_verify = df["type"].copy()
 
-for col in X_verify.select_dtypes(include=["object"]).columns:
+for col in X_verify.select_dtypes(include=["object", "str"]).columns:
     X_verify[col] = (
         X_verify[col]
         .fillna("Unknown")

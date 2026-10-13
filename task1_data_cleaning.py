@@ -34,7 +34,7 @@ print(df.duplicated().sum())
 df = df.drop_duplicates()
 
 # Step 6: Clean text columns
-for column in df.select_dtypes(include=["object"]).columns:
+for column in df.select_dtypes(include=["object", "str"]).columns:
     df[column] = df[column].map(
         lambda value: value.strip()
         if isinstance(value, str)
