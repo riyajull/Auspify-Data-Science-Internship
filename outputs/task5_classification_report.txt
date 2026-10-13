@@ -1,0 +1,13 @@
+Netflix Content Classification Report
+========================================
+Features used: ['listed_in', 'release_year', 'rating', 'duration', 'country']
+Accuracy: 0.9994
+
+              precision    recall  f1-score   support
+
+       Movie       1.00      1.00      1.00      1225
+     TV Show       1.00      1.00      1.00       533
+
+    accuracy                           1.00      1758
+   macro avg       1.00      1.00      1.00      1758
+weighted avg       1.00      1.00      1.00      1758
