@@ -401,8 +401,28 @@ These screenshots document selected outputs and visualizations from the implemen
 
 ---
 
-## 📚 Learning Outcomes
+## 🚀 Live Dashboard
 
+Explore the deployed Streamlit dashboard:
+
+**[Open Netflix Data Science Dashboard](https://auspify-data-science-internship-58qojsenn592eyhjbut46g.streamlit.app/)**
+
+The deployment returned HTTP status `200` during a connectivity check. This confirms an HTTP response, not complete verification of every dashboard feature.
+
+---
+
+## 🧪 Load Testing
+
+Load-testing scripts and recorded results are available below:
+
+- [Load Test Results](LOAD_TEST_RESULTS.md)
+- [Standard Load Test Script](load_test.js)
+- [Cloud Smoke Test Script](cloud_smoke_test.js)
+
+The recorded tests cover HTTP endpoints. They do not establish performance for every interactive dashboard feature or guarantee behavior under all production traffic levels.
+
+---
+## 📚 Learning Outcomes
 This internship project provides practical experience with:
 
 - Data cleaning and preprocessing using Pandas.

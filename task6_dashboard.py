@@ -344,7 +344,7 @@ def explode_multivalue(series: pd.Series) -> pd.Series:
 DATA_PATH = os.path.join("outputs", "netflix_cleaned.csv")
 
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_data():
     if not os.path.exists(DATA_PATH):
         raise FileNotFoundError(
@@ -470,13 +470,13 @@ col1, col2, col3, col4 = st.columns(4)
 col1.markdown(kpi_card("Total Titles", f"{total_titles:,}"), unsafe_allow_html=True)
 col2.markdown(kpi_card("🎬 Movies", f"{total_movies:,}"), unsafe_allow_html=True)
 col3.markdown(kpi_card("📺 TV Shows", f"{total_tv_shows:,}"), unsafe_allow_html=True)
-col4.markdown(kpi_card("🌍 Countries", f"{total_countries:,}"), unsafe_allow_html=True)
+col4.markdown(kpi_card("Countries", f"{total_countries:,}"), unsafe_allow_html=True)
 
 # --------------------------------------------------
 # Content Type Distribution + Release Trend
 # --------------------------------------------------
 
-section("📊 Content Overview")
+section("Content Overview")
 
 left, right = st.columns([1, 1.6])
 
@@ -539,7 +539,7 @@ with right:
 # Top Countries and Categories
 # --------------------------------------------------
 
-section("🌍 Geography and Genres")
+section("Geography and Genres")
 
 left, right = st.columns(2)
 
@@ -597,7 +597,7 @@ with right:
 # Ratings Distribution
 # --------------------------------------------------
 
-section("⭐ Ratings Distribution")
+section("Ratings Distribution")
 
 if "rating" in filtered_df.columns:
     rating_data = (
@@ -622,7 +622,7 @@ if "rating" in filtered_df.columns:
 # Business Insights
 # --------------------------------------------------
 
-section("💡 Business Insights")
+section("Business Insights")
 
 if not filtered_df.empty:
 
@@ -679,7 +679,7 @@ else:
 # Data Preview and Download
 # --------------------------------------------------
 
-section("📋 Dataset Preview")
+section("Dataset Preview")
 
 show_dataframe(filtered_df.head(100))
 st.caption(f"Showing the first {min(100, len(filtered_df)):,} of {len(filtered_df):,} filtered records.")
@@ -687,7 +687,7 @@ st.caption(f"Showing the first {min(100, len(filtered_df)):,} of {len(filtered_d
 csv_data = filtered_df.to_csv(index=False).encode("utf-8")
 
 st.download_button(
-    label="⬇️ Download Filtered Dataset",
+    label="Download Filtered Dataset",
     data=csv_data,
     file_name="netflix_filtered_data.csv",
     mime="text/csv",
