@@ -67,7 +67,7 @@ X = df[features].copy()
 y = df["type"].copy()
 
 # Convert text/categorical values to consistent format
-for col in X.select_dtypes(include=["object"]).columns:
+for col in X.select_dtypes(include=["object", "str"]).columns:
     X[col] = X[col].fillna("Unknown").astype(str).str.strip()
     X[col] = X[col].replace("", "Unknown")
 
@@ -175,12 +175,7 @@ model = Pipeline(
 
 print("\nTraining the classification model...")
 
-model.fit(X_train, y_train)
-
-# --------------------------------------------------
-# Additional Evaluation: 5-Fold Cross-Validation
-# --------------------------------------------------
-
+# Evaluate model using 5-fold cross-validation
 cv = StratifiedKFold(
     n_splits=5,
     shuffle=True,
@@ -201,6 +196,9 @@ cv_scores = cross_val_score(
 print("Cross-validation scores:", cv_scores)
 print(f"Mean CV accuracy: {cv_scores.mean() * 100:.2f}%")
 print(f"CV standard deviation: {cv_scores.std() * 100:.2f}%")
+
+# Train the final model on the complete training set
+model.fit(X_train, y_train)
 
 print("Model training completed successfully!")
 
@@ -308,7 +306,7 @@ verification_features = [
 X_verify = df[verification_features].copy()
 y_verify = df["type"].copy()
 
-for col in X_verify.select_dtypes(include=["object"]).columns:
+for col in X_verify.select_dtypes(include=["object", "str"]).columns:
     X_verify[col] = (
         X_verify[col]
         .fillna("Unknown")
